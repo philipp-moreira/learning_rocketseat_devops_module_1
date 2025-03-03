@@ -1,0 +1,11 @@
+# ignore node folders, useds just in development time
+node_modules
+dist
+
+# ignore docker files, useds just in development time
+Dockerfile
+.dockignore
+
+# ignore version control files - git
+.git
+.gitignore
