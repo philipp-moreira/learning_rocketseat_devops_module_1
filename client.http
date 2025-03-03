@@ -1,0 +1,9 @@
+### Environment Variables
+@app_port = 3000
+@app_host = localhost
+@app_base_url = http://{{app_host}}:{{app_port}}
+
+#### Requests
+
+# @name get_hello_world
+GET {{app_base_url}}/
