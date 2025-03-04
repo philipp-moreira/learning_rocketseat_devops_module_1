@@ -13,6 +13,8 @@ services:
       - MYSQL_PASSWORD=root
     networks:
       - minha-primeira-network
+    volumes:
+      - db:/var/lib/mysql
 
   api-rocket:
     container_name: api-rocket
@@ -31,4 +33,6 @@ networks:
     external:
       true
     driver: bridge
-      
+
+volumes:
+  db:
