@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=rocketseat-db
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=root
+    networks:
+      - minha-primeira-network
+
+  api-rocket:
+    container_name: api-rocket
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    networks:
+      - minha-primeira-network
+    
+networks:
+  minha-primeira-network:
+    name: minha-primeira-network
+    external:
+      true
+    driver: bridge
+      
