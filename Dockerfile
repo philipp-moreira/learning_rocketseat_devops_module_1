@@ -10,8 +10,8 @@ COPY package*.json ./
 # Here I am not using it, because the application is node and I am using 'npm' as package manager. 
 # In this case, if I were using 'yarn', there would be a difference in this line, like for example: 'COPY .yarn ./.yarn'
 
-# changing argument from statement to production context
-RUN npm install --omit=dev
+# changing statement to production context
+RUN npm ci
 
 COPY . . 
 
@@ -29,4 +29,5 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+# changing statement to production context
+CMD ["npm", "run", "start:prod"]
